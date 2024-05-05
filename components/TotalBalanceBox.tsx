@@ -1,8 +1,14 @@
-import AnimatedCounter from './AnimatedCounter';
-import DoughnutChart from './DoughnutChart';
+
+
+import { formatAmount } from '@/lib/utils';
+import AnimatedCounter from './orgComponents/AnimatedCounter';
+import DoughnutChart from './orgComponents/DoughnutChart';
+import CountUp from 'react-countup';
 
 const TotalBalanceBox = ({
-  accounts = [], totalBanks, totalCurrentBalance
+  accounts = [], 
+  totalBanks, 
+  totalCurrentBalance
 }: TotalBalanceBoxProps) => {
   return (
     <section className="total-balance">
@@ -14,18 +20,21 @@ const TotalBalanceBox = ({
         <h2 className="header-2">
           Bank Accounts: {totalBanks}
         </h2>
+
         <div className="flex flex-col gap-2">
           <p className="total-balance-label">
             Total Current Balance
           </p>
-
+            {/* <CountUp end={100}/>*/}
+            {/* <p>{formatAmount(totalCurrentBalance)}</p> */}
           <div className="total-balance-amount flex-center gap-2">
             <AnimatedCounter amount={totalCurrentBalance} />
           </div>
         </div>
+
       </div>
     </section>
   )
 }
 
-export default TotalBalanceBox
+export default TotalBalanceBox;
